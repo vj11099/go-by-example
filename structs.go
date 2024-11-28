@@ -53,3 +53,7 @@ func main() {
 	fmt.Println(dog.name)
 
 }
+
+// (**pet).name = "Max"
+// fmt.Println("New Animal:", newAnimal)
+// fmt.Println("Pet:", *pet)
