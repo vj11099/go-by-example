@@ -20,9 +20,9 @@ func main() {
 		// 		return
 		// 	}
 		// }
-		for i := 0; i < 5; i++ {
+		for {
 			j, more := <-jobs
-			if (more) && (j < 4) {
+			if (more) && (j < 5) {
 				fmt.Println("recieved a job", j)
 			} else {
 				fmt.Println("recieved all jobs")
@@ -32,7 +32,7 @@ func main() {
 		}
 	}()
 
-	for j := 0; j < 6; j++ {
+	for j := 0; j < 7; j++ {
 		jobs <- j
 		fmt.Println("sent job", j)
 		time.Sleep(500 * time.Millisecond)
