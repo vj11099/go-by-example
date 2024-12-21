@@ -8,6 +8,7 @@ import (
 
 func main() {
 	var ops atomic.Uint64
+	regularVal := 10
 
 	var wg sync.WaitGroup
 
@@ -17,6 +18,7 @@ func main() {
 		go func() {
 			for c := 0; c < 1000; c++ {
 				ops.Add(1)
+				regularVal++
 			}
 			wg.Done()
 		}()
@@ -25,4 +27,5 @@ func main() {
 	wg.Wait()
 
 	fmt.Println("ops:", ops.Load())
+	fmt.Println("regularVal:", regularVal)
 }
